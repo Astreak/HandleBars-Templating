@@ -7,7 +7,7 @@ var app = express();
 app.engine("handlebars", handleBars.engine); // setting the engine at handlebars
 app.set('view engine', 'handlebars');        // using the engine as view engine template
 app.use(express.static(__dirname + "/public")); // setting the static folder to reduce overhead 
-app.use(bodyParser.urlencoded({ extended: false })); // using bodyParser middleware to access req.body
+app.use(bodyParser.urlencoded({ extended: false })); 
 var JSO = [
     { 'name': 'praj', 'age': 12, 'ok': 34 },
     {'name':'john',age:34,'ok':undefined}
