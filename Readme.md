@@ -1,6 +1,6 @@
                                             HandleBars
 
-![alt text] (https://handlebarsjs.com/images/handlebars_logo.png)
+![alt text](https://handlebarsjs.com/images/handlebars_logo.png)
 
 
 Semantic templates
