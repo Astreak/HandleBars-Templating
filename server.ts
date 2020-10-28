@@ -7,6 +7,7 @@ const reqL = (req, res) => {
         "name": "prj",
         "age":12
     }
+    
     fs.readFile("./public/home.html", (err, data) => {
         if (err) {
             res.statusCode = 404;
@@ -24,16 +25,7 @@ const reqL = (req, res) => {
         }
     });
 }
-http.get({
-    hostname: 'localhost',
-    port: 3000,
-    path: '/',
-    
 
-}, (res) => {
-        console.log(res);
-    
-});
 const server = http.createServer(reqL);
 server.listen(4000, 'localhost', () => {
     console.log(`Server is running localhost port 4000`);

@@ -1,14 +1,24 @@
 const express = require('express');
-const handlebars = require('express3-handlebars').create({ defaultLayout: 'main' });
-
+const handleBars = require('express3-handlebars').create({ defaultLayout: 'main' });
+const bodyParser = require('body-parser');
 var app = express();
 
-app.engine("handlebars", handlebars.engine);
-app.set('view engine', 'handlebars');
-app.use(express.static(__dirname + "/public"));
+app.engine("handlebars", handleBars.engine); // setting the engine at handlebars
+app.set('view engine', 'handlebars');        // using the engine as view engine template
+app.use(express.static(__dirname + "/public")); // setting the static folder to reduce overhead 
+app.use(bodyParser.urlencoded({ extended: false })); // using bodyParser middleware to access req.body
 
 app.get("/", (req, res) => {
     res.render("Home");
+});
+app.post("/", (req, res) => {
+    console.log("Post");
+    if (req.body.Text == "praj")
+        res.redirect("/");
+    else
+        res.redirect("/users");
+    
+    
 });
 app.get("/users", (req, res) => {
     res.render("Users"); 
