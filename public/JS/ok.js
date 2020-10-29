@@ -1,3 +1,5 @@
-Handlebars.registerHelper('equals', (a, b) => {
-    return a == b;
+$(document).ready(() => {
+    $('#pipi').mouseover(() => {
+        $(this).toggleClass("active");
+    })
 });

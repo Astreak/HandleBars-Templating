@@ -23,13 +23,14 @@ var JSO = [
 ]
 var A = [];
 
+
 app.get("/", (req, res) => {
     var y = "";
-    if (req.headers.cookie != undefined) {
+    if (req.headers.cookie) {
         y = req.headers.cookie.split(';')[1].split('=')[1];
     }
     
-    res.render("home",{'temp':y,'lol':[1,2,3,4,5]});
+    res.render("home",{'temp':JSO});
 });
 app.post("/", (req, res) => {
     console.log("Post");
@@ -38,14 +39,16 @@ app.post("/", (req, res) => {
     res.cookie("name", req.body.username);
     res.cookie('password', req.body.password);
     if (req.body.Text == "praj")
-        res.redirect("/");
+        res.redirect(303,"/");
     else
-        res.redirect("/users");
+        res.redirect(303,"/");
     
     
 });
 app.get("/users", (req, res) => {
+    
     let k = req.headers.cookie.split('=')[1];
+    
     if (k == 'praj')
         res.render("Users");
     else

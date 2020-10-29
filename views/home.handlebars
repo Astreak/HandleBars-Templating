@@ -10,20 +10,16 @@
         <input type="password" name="password" class="form-control" placeholder="password">
     </div>
     
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-primary" type="submit" id='ok'>Submit</button>
     <hr>
     <ul class="list-group">
-    {{# if_equal  temp 'praj'}}
-    <li class="list-group-item">
-        <b><u> temp </u></b>
-    
-    </li>
-    {{ else }}
-    <li class="list-group-item">
-        <h3 style="font-weight:600"> temp </b>
-    </li>
-    {{/if_equal}}
+     {{# each temp}}
+     
+     <li class="list-group-item" id="pipi">
+         {{name}} {{age}}
+
+     </li>   
    
-    
+    {{/each}}
     </ul>
 </form>
