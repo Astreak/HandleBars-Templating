@@ -1,6 +1,13 @@
 <h1> Home Page</h1>
+{{! this is comment }}
 <form action="/" method="POST">
     <input type="text" name="username"> Username:
     <input type="password" name="password">Password:
     <button type="submit">Submit</button>
+    {{# each temp}}
+    <li>
+        {{name}} {{age}}
+    
+    </li>
+    {{/each}}
 </form>

@@ -1,3 +1,4 @@
+//eslint
 const express = require('express');
 const handleBars = require('express3-handlebars').create({ defaultLayout: 'main' });
 const bodyParser = require('body-parser');
@@ -15,13 +16,20 @@ var JSO = [
 var A = [];
 
 app.get("/", (req, res) => {
-    res.render("Home");
+    var y = undefined;
+    if (req.headers.cookie != undefined) {
+        y = req.headers.cookie.split(';')[1].split('=')[1];
+    }
+    var temp = () => {
+        return y == "praj";
+    }
+    res.render("Home",{'temp':JSO});
 });
 app.post("/", (req, res) => {
     console.log("Post");
     let n = new member(req.body.username, req.body.password);
     A.push(n);
-    res.cookie("name", req.body.Text);
+    res.cookie("name", req.body.username);
     res.cookie('password', req.body.password);
     if (req.body.Text == "praj")
         res.redirect("/");
