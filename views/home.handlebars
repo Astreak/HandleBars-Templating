@@ -1,13 +1,29 @@
 <h1> Home Page</h1>
 {{! this is comment }}
 <form action="/" method="POST">
-    <input type="text" name="username"> Username:
-    <input type="password" name="password">Password:
-    <button type="submit">Submit</button>
-    {{# each temp}}
-    <li>
-        {{name}} {{age}}
+    <div class="form-group">
+        <label >Username:</label>
+        <input class="form-control" name="username" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <label> Password</label>
+        <input type="password" name="password" class="form-control" placeholder="password">
+    </div>
+    
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <hr>
+    <ul class="list-group">
+    {{# if_equal  temp 'praj'}}
+    <li class="list-group-item">
+        <b><u> temp </u></b>
     
     </li>
-    {{/each}}
+    {{ else }}
+    <li class="list-group-item">
+        <h3 style="font-weight:600"> temp </b>
+    </li>
+    {{/if_equal}}
+   
+    
+    </ul>
 </form>

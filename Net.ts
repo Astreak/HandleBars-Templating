@@ -1,6 +1,14 @@
 //eslint
 const express = require('express');
-const handleBars = require('express3-handlebars').create({ defaultLayout: 'main' });
+const handleBars = require('express3-handlebars').create({
+    defaultLayout: 'main', 'helpers': {
+        'if_equal': (a, b) => {
+            if (a == b)
+                return b;
+            else
+                return 'No Auth';
+        }
+    }});
 const bodyParser = require('body-parser');
 const member = require('./Student.ts');
 var app = express();
@@ -16,14 +24,12 @@ var JSO = [
 var A = [];
 
 app.get("/", (req, res) => {
-    var y = undefined;
+    var y = "";
     if (req.headers.cookie != undefined) {
         y = req.headers.cookie.split(';')[1].split('=')[1];
     }
-    var temp = () => {
-        return y == "praj";
-    }
-    res.render("Home",{'temp':JSO});
+    
+    res.render("home",{'temp':y,'lol':[1,2,3,4,5]});
 });
 app.post("/", (req, res) => {
     console.log("Post");
