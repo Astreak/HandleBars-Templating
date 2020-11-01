@@ -14,11 +14,9 @@ var g = new Student('praj', 22)
 
 
 $(document).ready(() => {
-
     $('#pipi').click(() => {
-        $('#pipi').after(() => {
-            return '<li class="list-group-item active"> ' + this.g.name + '</li>'
-        })
+       console.log($(this))
     })
+    
 
 });
